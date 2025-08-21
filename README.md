@@ -1,9 +1,8 @@
 HERE'S HOW IT LOOKS
 https://github.com/user-attachments/assets/b649a8d5-d7ec-4c89-a636-9a6115421fb7
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class ArraySort {
+public class ArrayReverse {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int[] arr = new int[5];
@@ -13,10 +12,9 @@ public class ArraySort {
             arr[i] = sc.nextInt();
         }
 
-        Arrays.sort(arr);
-        System.out.println("Sorted array:");
-        for (int num : arr) {
-            System.out.print(num + " ");
+        System.out.println("Array in reverse order:");
+        for (int i = arr.length - 1; i >= 0; i--) {
+            System.out.print(arr[i] + " ");
         }
     }
 }
