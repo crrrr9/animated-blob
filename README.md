@@ -1,52 +1,39 @@
 HERE'S HOW IT LOOKS
 https://github.com/user-attachments/assets/b649a8d5-d7ec-4c89-a636-9a6115421fb7
-package com.scb.Payment.Initiation.Entity;
+package com.example.demo.model;
 
 import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "users")  // assuming your table name is "users"
-public class User {
+@Table(name = "roles")  // assuming your table is named "roles"
+public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    private Long roleId;
 
-    private String username;
+    private String roleName;
 
-    private String email;
-
-    // other fields like password, etc.
-
-    // One user can have many userRoles
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    // One role can be assigned to many userRoles
+    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<UserRole> userRoles;
 
-    // Constructors, getters, setters
-
-    public User() {}
+    public Role() {}
 
     // getters and setters
-    public Long getUserId() {
-        return userId;
+    public Long getRoleId() {
+        return roleId;
     }
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-    public void setUsername(String username) {
-        this.username = username;
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
     }
 
-    public String getEmail() {
-        return email;
+    public String getRoleName() {
+        return roleName;
     }
-    public void setEmail(String email) {
-        this.email = email;
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 
     public Set<UserRole> getUserRoles() {
@@ -56,4 +43,3 @@ public class User {
         this.userRoles = userRoles;
     }
 }
-
